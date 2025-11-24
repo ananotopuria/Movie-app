@@ -4,11 +4,35 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css" />
     <title>AnoMI</title>
   </head>
   <body>
-    <div id="app"></div>
-    <p>Hello</p>
-    <script type="module" src="/src/main.js"></script>
+    <header>
+      <div class="navigation-container">
+        <a href="/" class="logo">
+          <span>AnoMi</span>
+        </a>
+
+        <nav class="nav-menu">
+          <ul>
+            <li class="movieTab">Movies</li>
+            <li class="tvTab">TV Shows</li>
+          </ul>
+        </nav>
+
+        <div class="search-wrapper">
+          <input
+            class="search-input"
+            type="text"
+            placeholder="Search movies..."
+          />
+        </div>
+      </div>
+    </header>
+
+    <div class="content"></div>
+
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>
