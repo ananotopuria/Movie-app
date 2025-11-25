@@ -1,4 +1,4 @@
-import { getMovies, getMoviesAx, getTvShows } from "./api";
+import { getMoviesAx, getTvShows } from "./api";
 
 export function setupTabs() {
   const movieTab = document.querySelector(".movieTab");

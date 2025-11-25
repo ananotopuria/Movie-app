@@ -13,7 +13,6 @@ export async function getMoviesAx() {
         page: 1,
       },
     });
-
     return response.data.results;
   } catch (error) {
     console.error("Error fetching movies: ", error);
