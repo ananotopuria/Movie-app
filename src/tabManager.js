@@ -1,4 +1,4 @@
-import { getMovies, getTvShows } from "./api";
+import { getMovies, getMoviesAx, getTvShows } from "./api";
 
 export function setupTabs() {
   const movieTab = document.querySelector(".movieTab");
@@ -21,9 +21,9 @@ export function setupTabs() {
     tvTab.classList.remove("active");
     updateContent("Movie tab");
 
-    //Logging movies
+    // Logging movies
     (async function () {
-      const data = await getMovies();
+      const data = await getMoviesAx();
       console.log(data);
     })();
   });
