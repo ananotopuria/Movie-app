@@ -21,7 +21,7 @@ export function setupTabs() {
     tvTab.classList.remove("active");
     updateContent("Movie tab");
 
-    //Logging movies
+    // Logging movies
     (async function () {
       const data = await getMovies();
       console.log(data);
