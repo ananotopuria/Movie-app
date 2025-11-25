@@ -1,17 +1,17 @@
 import { getMovies, getTvShows } from "./api";
 
+const movieTab = document.querySelector(".movieTab");
+const tvTab = document.querySelector(".tvTab");
+const content = document.querySelector(".content");
+
+const updateContent = function (mesg) {
+  content.innerHTML = "";
+  const title = document.createElement("h1");
+  title.textContent = mesg;
+  content.appendChild(title);
+};
+
 export function setupTabs() {
-  const movieTab = document.querySelector(".movieTab");
-  const tvTab = document.querySelector(".tvTab");
-  const content = document.querySelector(".content");
-
-  const updateContent = function (mesg) {
-    content.innerHTML = "";
-    const title = document.createElement("h1");
-    title.textContent = mesg;
-    content.appendChild(title);
-  };
-
   movieTab.addEventListener("click", () => {
     //handling unnecessary API calls
     if (movieTab.classList.contains("active")) return;

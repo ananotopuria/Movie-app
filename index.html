@@ -46,6 +46,24 @@
         <p class="hero__subtitle">What are you gonna watch today?</p>
         <div class="hero__container"></div>
       </section>
+
+      <!-- <div class="movie-content">
+        <p class="popular">Most popular Movies!</p>
+
+        <div class="movies"></div>
+      </div> -->
+
+      <div class="movie-content">
+        <p class="popular">Most popular Movies!</p>
+
+        <div class="swiper movies-swiper">
+          <div class="swiper-wrapper movies"></div>
+
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+      
       <section class="tvshows">
         <h3 class="tvshow__title">Popular Tv Shows</h3>
         <div class="swiper">
@@ -55,7 +73,7 @@
         </div>
       </section>
     </main>
-    <div class="content"></div>
     <script type="module" src="./src/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </body>
 </html>
