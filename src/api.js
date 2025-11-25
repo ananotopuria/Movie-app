@@ -23,13 +23,16 @@ export async function getMovies() {
 // TV Show Page
 export async function getTvShows() {
   try {
-    const response = await fetch(
-      `${BASE_URL}/tv/popular?api_key=${API_KEY}&language=en-US&page=1`
-    );
-    const data = await response.json();
-    return data.results;
+    const response = await axios.get(`${BASE_URL}/tv/popular`, {
+      params: {
+        api_key: API_KEY,
+        language: "en-US",
+        page: 1,
+      },
+    });
+    return response.data.results;
   } catch (error) {
-    console.error("Error fetching TV shows:", error);
+    console.error("Error fetching movies: ", error);
     return [];
   }
 }
