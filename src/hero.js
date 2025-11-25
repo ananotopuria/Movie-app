@@ -25,7 +25,7 @@ export function initHeroSlider() {
   const prevBtn = slide.querySelector(".hero__nav--prev");
   const nextBtn = slide.querySelector(".hero__nav--next");
 
-  function renderMovie(index) {
+  async function renderMovie(index) {
     const movie = movies[index];
     titleEl.textContent = movie.title;
     descEl.textContent = movie.description;

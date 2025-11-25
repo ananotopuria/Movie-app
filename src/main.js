@@ -1,7 +1,8 @@
 import { setupTabs } from "./tabManager";
 import { initHeroSlider } from "./hero.js";
-import { getFivePopular } from "./popularMovies.js";
+import { mostPopular } from "./popular-slider.js";
 
 setupTabs();
 initHeroSlider();
-getFivePopular();
+mostPopular("movie");
+mostPopular("tv");
