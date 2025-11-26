@@ -285,3 +285,71 @@ header {
 .swiper-button-prev:hover {
   opacity: 0.9;
 }
+
+/* main */
+
+.main-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.page-btn {
+  padding: 12px 18px;
+  background: #313163;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 16px;
+  margin: 0 30px;
+  transition: all 0.3s;
+}
+
+.page-btn:hover {
+  background-color: white;
+  color: #313163;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 6px;
+}
+
+.page-number {
+  padding: 6px 12px;
+  background-color: #0f0f23;
+  color: #fff;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.2s;
+}
+
+.page-number:hover {
+  background-color: white;
+  color: #313163;
+  border-radius: 20px;
+}
+
+.page-number.active {
+  background: #1e1e5c;
+  border-radius: 30px;
+}
+
+.hide {
+  display: none;
+}
