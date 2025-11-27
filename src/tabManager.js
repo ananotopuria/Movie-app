@@ -58,6 +58,7 @@ export async function setupTabs() {
 
     renderPagination();
     //Switching tabs
+
     movieTab.classList.add("active");
     tvTab.classList.remove("active");
   });
@@ -80,10 +81,17 @@ export async function setupTabs() {
     updateContent(tvData, "tv");
 
     renderPagination();
-
-    //Switching tabs
+    // Switching tabs
     movieTab.classList.remove("active");
     tvTab.classList.add("active");
+
+    // updateContent("Tv-shop tab");
+
+    // Logging tvshows
+    (async function () {
+      const data = await getData("tv");
+      // console.log(data);
+    })();
   });
 }
 
