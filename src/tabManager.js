@@ -1,15 +1,15 @@
 import { getData } from "./api";
 
-const movieTab = document.querySelector(".movieTab");
-const tvTab = document.querySelector(".tvTab");
-const content = document.querySelector(".main-flex");
-const hero = document.querySelector(".hero");
-const movieContent = document.querySelector(".movie-content");
-const tvShowContent = document.querySelector(".tvshows-content");
-const pageNumbersEl = document.querySelector(".page-numbers");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
-const pagination = document.querySelector(".pagination");
+let movieTab;
+let tvTab;
+let content;
+let hero;
+let movieContent;
+let tvShowContent;
+let pageNumbersEl;
+let prevBtn;
+let nextBtn;
+let pagination;
 
 let isMovie = true;
 let currentPage = 1;
@@ -26,12 +26,20 @@ const updateContent = function (data, type) {
   data.forEach((el) => {
     const postUrl = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
 
-    const html = `<div class="swiper-slide movie-props">
-          <img class="movie-img" src="${postUrl}" />
-          <p class="movie-name">${isMovie ? el.title : el.name}</p>
-        </div>`;
+    const html = `
+    <div class="swiper-slide movie-props" data-id="${el.id}">
+      <img class="movie-img" src="${postUrl}" />
+      <p class="movie-name">${isMovie ? el.title : el.name}</p>
+    </div>
+  `;
 
     content.insertAdjacentHTML("beforeend", html);
+    const newSlide = content.lastElementChild;
+    newSlide.addEventListener("click", () => {
+      const id = el.id;
+      const page = "detailsPage.html";
+      window.location.href = `../pages/${page}?id=${id}`;
+    });
   });
 
   pagination.classList.remove("hide");
@@ -39,8 +47,24 @@ const updateContent = function (data, type) {
 };
 
 export async function setupTabs() {
+  movieTab = document.querySelector(".movieTab");
+  tvTab = document.querySelector(".tvTab");
+  content = document.querySelector(".main-flex");
+  hero = document.querySelector(".hero");
+  movieContent = document.querySelector(".movie-content");
+  tvShowContent = document.querySelector(".tvshows-content");
+  pageNumbersEl = document.querySelector(".page-numbers");
+  prevBtn = document.querySelector(".prev");
+  nextBtn = document.querySelector(".next");
+  pagination = document.querySelector(".pagination");
+
+  // safety check (optional)
+  if (!movieTab || !tvTab) {
+    console.error("Tabs not found in DOM");
+    return;
+  }
+
   movieTab.addEventListener("click", async function () {
-    //handling unnecessary API calls
     if (movieTab.classList.contains("active")) {
       currentPage = 1;
     }
@@ -49,22 +73,16 @@ export async function setupTabs() {
     currentPage = 1;
 
     const movieData = await getData("movie");
-
     if (!movieData || movieData.length === 0) return;
 
-    console.log(movieData);
-
     updateContent(movieData, "movie");
-
     renderPagination();
-    //Switching tabs
 
     movieTab.classList.add("active");
     tvTab.classList.remove("active");
   });
 
   tvTab.addEventListener("click", async function () {
-    //handling unnecessary API calls
     if (tvTab.classList.contains("active")) {
       currentPage = 1;
     }
@@ -73,25 +91,22 @@ export async function setupTabs() {
     currentPage = 1;
 
     const tvData = await getData("tv");
-
     if (!tvData || tvData.length === 0) return;
 
-    console.log(tvData);
-
     updateContent(tvData, "tv");
-
     renderPagination();
-    // Switching tabs
+
     movieTab.classList.remove("active");
     tvTab.classList.add("active");
+  });
 
-    // updateContent("Tv-shop tab");
+  // pagination buttons
+  prevBtn.addEventListener("click", () => {
+    if (currentPage > 1) loadPage(currentPage - 1);
+  });
 
-    // Logging tvshows
-    (async function () {
-      const data = await getData("tv");
-      // console.log(data);
-    })();
+  nextBtn.addEventListener("click", () => {
+    if (currentPage < 500) loadPage(currentPage + 1);
   });
 }
 
@@ -120,13 +135,3 @@ async function renderPagination() {
     pageNumbersEl.appendChild(btn);
   }
 }
-
-// Prev
-prevBtn.addEventListener("click", () => {
-  if (currentPage > 1) loadPage(currentPage - 1);
-});
-
-// Next
-nextBtn.addEventListener("click", () => {
-  if (currentPage < 500) loadPage(currentPage + 1);
-});

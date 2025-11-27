@@ -11,9 +11,9 @@ export function renderHeader() {
 
         <nav class="nav-menu">
           <ul>
-            <li class="movieTab active">Movies</li>
+            <li class="movieTab">Movies</li>
             <li class="tvTab">
-                <a href="/pages/tvshow.html" class="tvTab__link">Tv Series</a>
+                Tv Series
             </li>
           </ul>
         </nav>
