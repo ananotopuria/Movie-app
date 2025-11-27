@@ -1,4 +1,4 @@
-import { setupTabs } from "./tabManager";
+import { setupTabs } from "./tabs/tabManager.js";
 import { initHeroSlider } from "./hero.js";
 import { mostPopular } from "./popular-slider.js";
 import { renderHeader } from "./header.js";

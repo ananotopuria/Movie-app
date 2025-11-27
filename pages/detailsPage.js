@@ -1,6 +1,7 @@
 import { renderHeader } from "../src/header";
 import { getDetails } from "./apiForId";
-
+import { getData } from "../src/api";
+import { displayItems, mostPopular } from "../src/popular-slider";
 renderHeader();
 
 async function renderDetails() {
@@ -55,8 +56,23 @@ renderDetails();
 const movie = document.querySelector(".movieTab");
 const tv = document.querySelector(".tvTab");
 
-movie.addEventListener("click", async function () {
-  window.location.href = `/`;
+// movie.addEventListener("click", async function () {
+//   window.location.href = `/`;
+// });
+
+// tv.addEventListener("click", async function () {
+//   window.location.href = `/`;
+// });
+
+// async function backTo(type) {
+//   const data = await getData(type);
+//   // window.location.href = to;
+//   mostPopular(type, 20);
+//   console.log(data);
+// }
+
+movie.addEventListener("click", () => {
+  window.location.href = "/";
 });
 
 tv.addEventListener("click", async function () {

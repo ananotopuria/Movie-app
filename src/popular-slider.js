@@ -1,20 +1,18 @@
-//
-
 import { getData } from "./api";
 import { initSwiper } from "./swiper";
 
 const moviesContainer = document.querySelector(".movies");
 const tvsContainer = document.querySelector(".tvs");
 
-export const mostPopular = async function (type) {
+export const mostPopular = async function (type, size = 8) {
   const data = await getData(type);
   if (!data?.length) return;
 
-  const firstEight = data.slice(0, 8);
+  const firstEight = data.slice(0, size);
   displayItems(firstEight, type);
 };
 
-function displayItems(data, type) {
+export function displayItems(data, type) {
   const container = type === "movie" ? moviesContainer : tvsContainer;
   container.innerHTML = "";
 
