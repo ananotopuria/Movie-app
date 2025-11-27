@@ -15,7 +15,7 @@ let isMovie = true;
 let currentPage = 1;
 let currentType = "";
 
-const updateContent = function (data, type) {
+export function updateContent(data, type) {
   content.innerHTML = "";
   hero.innerHTML = "";
   movieContent.style.display = "none";
@@ -25,6 +25,7 @@ const updateContent = function (data, type) {
 
   data.forEach((el) => {
     const postUrl = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
+    const typeForCard = type;
 
     const html = `
     <div class="swiper-slide movie-props" data-id="${el.id}">
@@ -36,15 +37,18 @@ const updateContent = function (data, type) {
     content.insertAdjacentHTML("beforeend", html);
     const newSlide = content.lastElementChild;
     newSlide.addEventListener("click", () => {
-      const id = el.id;
-      const page = "detailsPage.html";
-      window.location.href = `../pages/${page}?id=${id}`;
+      goToDetails(el.id, typeForCard);
     });
   });
 
   pagination.classList.remove("hide");
   isMovie = true;
-};
+}
+
+function goToDetails(id, type) {
+  const page = "detailsPage.html";
+  window.location.href = `../pages/${page}?id=${id}&type=${type}`;
+}
 
 export async function setupTabs() {
   movieTab = document.querySelector(".movieTab");

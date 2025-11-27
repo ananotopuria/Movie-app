@@ -8,7 +8,9 @@ async function renderDetails() {
 
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
-  const type = params.get("type") || "movie"; // default if missing
+  const type = params.get("type");
+
+  console.log(type);
 
   if (!id) {
     container.innerHTML = "<p>No movie / TV show selected.</p>";
@@ -49,3 +51,14 @@ async function renderDetails() {
 }
 
 renderDetails();
+
+const movie = document.querySelector(".movieTab");
+const tv = document.querySelector(".tvTab");
+
+movie.addEventListener("click", async function () {
+  window.location.href = `/`;
+});
+
+tv.addEventListener("click", async function () {
+  window.location.href = `/`;
+});
