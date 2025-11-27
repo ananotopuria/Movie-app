@@ -13,7 +13,7 @@ export function renderHeader() {
           <ul>
             <li class="movieTab active">Movies</li>
             <li class="tvTab">
-                <a href="./pages/tvshow.html" class="tvTab__link">Tv Series</a>
+                <a href="/pages/tvshow.html" class="tvTab__link">Tv Series</a>
             </li>
           </ul>
         </nav>
