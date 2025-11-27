@@ -94,6 +94,11 @@ header {
   color: white;
 }
 
+.tvTab__link {
+  text-decoration: none;
+  color: #b3b3b3;
+}
+
 /* hero */
 
 .hero {
@@ -284,4 +289,45 @@ header {
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   opacity: 0.9;
+}
+
+.tv-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+}
+
+.tv-card {
+  width: 300px;
+  background: #1a1a1a;
+  border-radius: 1px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.tv-card img {
+  width: 100%;
+  height: 40rem;
+  object-fit: cover;
+  border-bottom: 2px solid #333;
+}
+
+.tv-card h3 {
+  font-size: 1.1rem;
+  margin: 10px;
+  color: #fff;
+  text-align: center;
+  height: 45px;
+  overflow: hidden;
+  padding-top: 2rem;
+}
+
+.tv-card p {
+  font-size: 0.9rem;
+  color: #ffaa00;
+  text-align: center;
+  margin-top: -5px;
+  padding: 2rem;
 }

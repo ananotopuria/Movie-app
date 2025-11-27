@@ -1,22 +1,27 @@
 import { getData } from "./api";
 
-const movieTab = document.querySelector(".movieTab");
-const tvTab = document.querySelector(".tvTab");
-const content = document.querySelector(".content");
-
-const updateContent = function (mesg) {
-  content.innerHTML = "";
-  const title = document.createElement("h1");
-  title.textContent = mesg;
-  content.appendChild(title);
-};
-
 export function setupTabs() {
+  const movieTab = document.querySelector(".movieTab");
+  const tvTab = document.querySelector(".tvTab");
+  const content = document.querySelector(".content");
+
+  if (!movieTab || !tvTab || !content) {
+    console.error("Tabs or content element not found!");
+    return;
+  }
+
+  const updateContent = function (mesg) {
+    content.innerHTML = "";
+    const title = document.createElement("h1");
+    title.textContent = mesg;
+    content.appendChild(title);
+  };
+
   movieTab.addEventListener("click", () => {
-    //handling unnecessary API calls
+    // handling unnecessary API calls
     if (movieTab.classList.contains("active")) return;
 
-    //Switching tabs
+    // Switching tabs
     movieTab.classList.add("active");
     tvTab.classList.remove("active");
     updateContent("Movie tab");
@@ -29,15 +34,15 @@ export function setupTabs() {
   });
 
   tvTab.addEventListener("click", () => {
-    //handling unnecessary API calls
+    // handling unnecessary API calls
     if (tvTab.classList.contains("active")) return;
 
-    //Switching tabs
+    // Switching tabs
     movieTab.classList.remove("active");
     tvTab.classList.add("active");
     updateContent("Tv-shop tab");
 
-    //Logging tvshows
+    // Logging tvshows
     (async function () {
       const data = await getData("tv");
       console.log(data);
