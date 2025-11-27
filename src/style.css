@@ -331,3 +331,33 @@ header {
   margin-top: -5px;
   padding: 2rem;
 }
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
+}
+
+.pagination button {
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.pagination button:hover {
+  background: #ff3b3b;
+  transform: translateY(-1px);
+}
+
+.pagination-info {
+  color: #ccc;
+  font-size: 0.9rem;
+}

@@ -1,7 +1,7 @@
 import { renderHeader } from "./header.js";
-import { renderTvSeries } from "./renderTvSeries.js";
+import { initTvSeries } from "./renderTvSeries.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   renderHeader();
-  renderTvSeries();
+  initTvSeries();
 });
