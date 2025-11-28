@@ -36,7 +36,7 @@ export function setupTabs() {
 //
 // tab click handler
 //
-async function onTabClick(type, activateTab, deactivateTab) {
+export async function onTabClick(type, activateTab, deactivateTab) {
   if (activateTab.classList.contains("active")) {
     currentPage = 1;
   }
